@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--
+  - Copyright 2012 Google Inc.
+  -
+  - Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  - use this file except in compliance with the License. You may obtain a copy
+  - of the License at
+  -
+  - http://www.apache.org/licenses/LICENSE-2.0
+  -
+  - Unless required by applicable law or agreed to in writing, software
+  - distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  - WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  - License for the specific language governing permissions and limitations
+  - under the License.
+--><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="WebApp_ID" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <listener>
+    <listener-class>
+      com.betbox.server.ApiKeyInitializer
+    </listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>
+      com.betbox.server.RegisterServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UnregisterServlet</servlet-name>
+    <servlet-class>
+      com.betbox.server.UnregisterServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UnregisterServlet</servlet-name>
+    <url-pattern>/unregister</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SendMessageServlet</servlet-name>
+    <servlet-class>
+      com.betbox.server.SendMessageServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SendMessageServlet</servlet-name>
+    <url-pattern>/send</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CreateBetServlet</servlet-name>
+    <servlet-class>
+      com.betbox.server.CreateBetServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CreateBetServlet</servlet-name>
+    <url-pattern>/createBet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>UpdateBetServlet</servlet-name>
+    <servlet-class>
+      com.betbox.server.UpdateBetServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UpdateBetServlet</servlet-name>
+    <url-pattern>/updateBet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CheckOutBetServlet</servlet-name>
+    <servlet-class>
+      com.betbox.server.CheckOutBetServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CheckOutBetServlet</servlet-name>
+    <url-pattern>/checkoutBet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>RefreshServlet</servlet-name>
+    <servlet-class>
+      com.betbox.server.RefreshServlet
+    </servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>RefreshServlet</servlet-name>
+    <url-pattern>/refresh</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>SystemServiceServlet</servlet-name>
+  	<servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+  	<init-param>
+   		<param-name>services</param-name>
+   		<param-value/>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <url-pattern>/_ah/spi/*</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+        <welcome-file>main.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
