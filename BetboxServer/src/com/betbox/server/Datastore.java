@@ -317,6 +317,10 @@ public final class Datastore {
 		}
 	}
 
+	/* 
+	 * Broadcast a bet to all the devices.
+	 * Called when new bet created or old bets updated.
+	 */
 	public static String broadcast(Bet bet) {
 		List<String> devices = Datastore.getDevices();
 		String status = null;

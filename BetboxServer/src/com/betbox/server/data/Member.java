@@ -4,6 +4,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Key;
 
+/* Member class */
 public class Member {
 	public static final String NAME_MEMBER = "Member";
 	public static final String PROPERTY_MEMBERID = "MemberID";
