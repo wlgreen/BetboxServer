@@ -29,8 +29,10 @@ import com.google.appengine.api.users.UserServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 
 /**
- * Servlet that create a new bet.
- * Nothing will change if the bet already exists
+ * Servlet that adds display number of devices and button to send a message.
+ * <p>
+ * This servlet is used just by the browser (i.e., not device) and contains the
+ * main page of the demo app.
  */
 @SuppressWarnings("serial")
 public class CreateBetServlet extends BaseServlet {

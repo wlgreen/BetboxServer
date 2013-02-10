@@ -31,8 +31,10 @@ import com.google.appengine.api.taskqueue.QueueFactory;
 import com.google.appengine.api.taskqueue.TaskOptions;
 
 /**
- * Servlet that receives the refresh request from a device and 
- * send all the bets to this specific devices.
+ * Servlet that adds display number of devices and button to send a message.
+ * <p>
+ * This servlet is used just by the browser (i.e., not device) and contains the
+ * main page of the demo app.
  */
 @SuppressWarnings("serial")
 public class RefreshServlet extends BaseServlet {

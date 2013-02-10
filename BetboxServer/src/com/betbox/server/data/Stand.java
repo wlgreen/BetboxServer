@@ -1,10 +1,9 @@
 package com.betbox.server.data;
 
+import com.betbox.server.Datastore;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Key;
-
-/* Stand class */
 
 public class Stand {
 	public static final String NAME_STAND = "Stand";
@@ -26,7 +25,6 @@ public class Stand {
 			return null;
 		}
 		
-		/* Create new stand or update old stand */
 		if (entity == null) {
 				stand.numYes = 0;
 				stand.numNo = 0;

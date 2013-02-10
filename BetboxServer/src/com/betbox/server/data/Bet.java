@@ -9,7 +9,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
-/* Bet class */
+
 public class Bet {
 	public String content;
 	public String creationTime;
@@ -50,30 +50,15 @@ public class Bet {
 		return formattedDate;
 	}
 	
-	/* Update an open bet */
 	public static boolean updateBet(String content, String standContent) {
 		Bet bet = Bet.makeBet(content);
 		if (bet.status == Bet.STATUS_CLOSE || !bet.pool.takeStand(standContent)) {
 			return false;
 		}
 		saveBet(bet);
-		/* Broadcast the bet pool update message */
+		/* Broadcase the bet pool update message */
 		Datastore.broadcast(bet);
 		return true;
-	}
-	
-	/* Check out an open bet */
-	public static String checkoutBet(String content) {
-		String status;
-		Bet bet = Bet.makeBet(content);
-		if (bet.status.equals(Bet.STATUS_OPEN)) {
-			bet.status = Bet.STATUS_CLOSE;
-			Bet.saveBet(bet);
-			status = Datastore.broadcast(bet);
-		} else {
-			status = "This bet is already closed";
-		}
-		return status;
 	}
 	
 	public static void saveBet(Bet bet){

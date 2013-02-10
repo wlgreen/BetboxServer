@@ -25,7 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.betbox.server.data.Stand;
 
 /**
- * Servlet that receives the update request from the device.
+ * Servlet that adds display number of devices and button to send a message.
+ * <p>
+ * This servlet is used just by the browser (i.e., not device) and contains the
+ * main page of the demo app.
  */
 @SuppressWarnings("serial")
 public class UpdateBetServlet extends BaseServlet {

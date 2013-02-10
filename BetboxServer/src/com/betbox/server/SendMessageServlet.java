@@ -34,7 +34,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet that sends a message to a device.
- * Message sent is in JSON format.
  * <p>
  * This servlet is invoked by AppEngine's Push Queue mechanism.
  */
