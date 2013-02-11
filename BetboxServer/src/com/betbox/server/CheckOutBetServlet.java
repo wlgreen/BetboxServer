@@ -26,10 +26,7 @@ import com.betbox.server.data.Bet;
 import com.google.appengine.api.datastore.Entity;
 
 /**
- * Servlet that adds display number of devices and button to send a message.
- * <p>
- * This servlet is used just by the browser (i.e., not device) and contains the
- * main page of the demo app.
+ * Servlet that checks out the bet and broadcast the result to all devices.
  */
 @SuppressWarnings("serial")
 public class CheckOutBetServlet extends BaseServlet {
@@ -47,14 +44,9 @@ public class CheckOutBetServlet extends BaseServlet {
 		if (content != null && content != "") {
 			Entity entity = Bet.getSingleBet(content);
 			if (entity != null) {
-				Bet bet = Bet.makeBet(content);
-				if (bet.status.equals(Bet.STATUS_OPEN)) {
-					bet.status = Bet.STATUS_CLOSE;
-					Bet.saveBet(bet);
-					status = Datastore.broadcast(bet);
-					req.setAttribute(CreateBetServlet.ATTRIBUTE_STATUS,
-							status.toString());
-				}
+				status = Bet.checkoutBet(content);
+				req.setAttribute(CreateBetServlet.ATTRIBUTE_STATUS,
+						status.toString());
 			}
 		}
 		getServletContext().getRequestDispatcher("/main.jsp")

@@ -24,6 +24,7 @@ public class StandPool {
 			return "" + numYes + '/' + numNo + '/' + availableNum;
 		}
 		
+		/* Take a stand from the StandPool */
 		public boolean takeStand(String stand) {
 			if (availableNum > 0) {
 				if (stand.equals(BET_YES)) {
